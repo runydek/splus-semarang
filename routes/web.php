@@ -3,6 +3,12 @@
 use App\Http\Controllers\DataKlasteringController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataProdukController;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +26,6 @@ Route::get('/', function () {
 
 Route::get('login', function () {
     return view('users.login');
-});
-
-Route::get('register', function () {
-    return view('users.register');
 });
 
 // data produk
@@ -45,9 +47,11 @@ Route::delete('dataklastering/{id}', [DataKlasteringController::class, 'destroy'
 // Users
 Route::middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'create'])->name('login');
-    Route::post('login', [LoginController::class, 'store']);
+    Route::post('login', [LoginController::class, 'store'])->name('login');
 
     Route::get('register', [RegistrationController::class, 'create'])->name('register');
-    Route::post('register', [RegistrationController::class, 'store']);
+    Route::post('register', [RegistrationController::class, 'store'])->name('register');
 });
+
+Route::post('logout', LogoutController::class)->name('logout')->middleware('auth');
 

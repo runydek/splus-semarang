@@ -73,19 +73,39 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            @guest
+                            <li class="nav-item">
+                                <div class="user-menu d-flex">
+                                    <a href="{{ route('register') }}" class=" nav-link user-name text-end">
+                                        <h6 class="mb-0 text-gray-600 me-3">Register</h6>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="user-menu d-flex">
+                                    <a href="{{ route('login') }}" class=" nav-link user-name text-end">
+                                        <h6 class="mb-0 text-gray-600 me-3">Login</h6>
+                                    </a>
+                                </div>
+                            </li>
                         </ul>
+                        @else
                         <div class="dropdown">
                             <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="user-menu d-flex">
                                     <div class="user-name text-end">
-                                        <h6 class="mb-0 text-gray-600 me-3">Admin</h6>
+                                        <h6 class="mb-0 text-gray-600 me-3">{{ Auth::user()->username }}</h6>
                                     </div>
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <li><button class="dropdown-item"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</button></li>
+                                  </form>
                             </ul>
                         </div>
+                        @endguest
                     </div>
                 </div>
             </nav>

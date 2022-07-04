@@ -10,15 +10,17 @@
   <body>
     <div class="center">
       <h1>Register</h1>
-      <form method="post">
+      <form action="{{ route('register') }}" method="post">
+        @csrf
         <div class="txt_field">
-          <input type="text" required>
+          <input type="text" required name="username" value="{{ old('username') }}">
           <span></span>
           <label>Username</label>
         </div>
         <div class="txt_field">
-          <input type="password" required>
-          <span></span>
+          <input type="password" required name="password">
+          <span>
+          </span>
           <label>Password</label>
         </div>
         <input type="submit" value="Register">

@@ -4,6 +4,9 @@
 @include('layouts.navbar')
 <div id="main-content">
     <section class="section">
+        @if (session()->has('success'))
+        <div class="alert alert-info text-center">{{ session()->get('success') }}</div>
+        @endif
         <div class="card">
             <div class="row justify-content-center">
                 <div class="col-md-6">
