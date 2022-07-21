@@ -22,27 +22,13 @@ use App\Http\Controllers\LogoutController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware('auth');
 
 Route::get('login', function () {
     return view('users.login');
 });
 
-// data produk
-Route::get('dataproduk', [DataProdukController::class, 'index']);
-Route::get('createdp', [DataProdukController::class, 'create']);
-Route::post('dataproduk', [DataProdukController::class, 'store']);
-Route::get('dataproduk/{id}/edit', [DataProdukController::class, 'edit']);
-Route::put('dataproduk/{id}', [DataProdukController::class, 'update']);
-Route::delete('dataproduk/{id}', [DataProdukController::class, 'destroy']);
 
-//data Klastering
-Route::get('dataklastering', [DataKlasteringController::class, 'index']);
-Route::get('createdk', [DataKlasteringController::class, 'create']);
-Route::post('dataklastering', [DataKlasteringController::class, 'store']);
-Route::get('dataklastering/{id}/edit', [DataKlasteringController::class, 'edit']);
-Route::put('dataklastering/{id}', [DataKlasteringController::class, 'update']);
-Route::delete('dataklastering/{id}', [DataKlasteringController::class, 'destroy']);
 
 // Users
 Route::middleware('guest')->group(function () {
@@ -53,5 +39,26 @@ Route::middleware('guest')->group(function () {
     Route::post('register', [RegistrationController::class, 'store'])->name('register');
 });
 
-Route::post('logout', LogoutController::class)->name('logout')->middleware('auth');
+
+Route::middleware(('auth'))->group(function () {
+    // data produk
+    Route::get('dataproduk', [DataProdukController::class, 'index']);
+    Route::post('dataproduk', [DataProdukController::class, 'store']);
+    Route::get('dataproduk/{id}/edit', [DataProdukController::class, 'edit']);
+    Route::delete('dataproduk/{id}', [DataProdukController::class, 'destroy']);
+    Route::get('createdp', [DataProdukController::class, 'create']);
+    Route::put('dataproduk/{id}', [DataProdukController::class, 'update']);
+
+    // data klastering
+    Route::get('dataklastering', [DataKlasteringController::class, 'index']);
+    Route::post('dataklastering', [DataKlasteringController::class, 'store']);
+    Route::get('dataklastering/{id}/edit', [DataKlasteringController::class, 'edit']);
+    Route::delete('dataklastering/{id}', [DataKlasteringController::class, 'destroy']);
+    Route::get('createdk', [DataKlasteringController::class, 'create']);
+    Route::put('dataklastering/{id}', [DataKlasteringController::class, 'update']);
+
+    Route::post('logout', LogoutController::class)->name('logout')->middleware('auth');
+
+});
+
 

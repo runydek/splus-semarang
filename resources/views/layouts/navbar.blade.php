@@ -4,7 +4,7 @@
             <div class="sidebar-header">
                 <div class="d-flex justify-content-between">
                     <div class="logo">
-                        <a href="index.html">S-Plus SMRNG</a>
+                        <a href="/">S-PLUS</a>
                     </div>
                     <div class="toggler">
                         <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>

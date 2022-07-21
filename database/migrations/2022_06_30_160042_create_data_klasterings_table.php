@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('data_klasterings', function (Blueprint $table) {
             $table->id();
+
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@
                     <div class="card-content">
                         <div class="row">
                             <div class="col-12">
-                                <a href="#" class="btn btn-primary">Tambah Data</a>
+                                <a href="" class="btn btn-primary">Tambah Data</a>
                                 <div class="col-sm-4 float-start float-lg-end">
                                     <div class="form-group position-relative has-icon-right">
                                         <input type="text" class="form-control" placeholder="Search">
