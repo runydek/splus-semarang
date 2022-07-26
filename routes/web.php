@@ -6,6 +6,7 @@ use App\Http\Controllers\DataProdukController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ReportController;
 
 
 
@@ -51,13 +52,12 @@ Route::middleware(('auth'))->group(function () {
 
     // data klastering
     Route::get('dataklastering', [DataKlasteringController::class, 'index']);
-    Route::post('dataklastering', [DataKlasteringController::class, 'store']);
-    Route::get('dataklastering/{id}/edit', [DataKlasteringController::class, 'edit']);
-    Route::delete('dataklastering/{id}', [DataKlasteringController::class, 'destroy']);
-    Route::get('createdk', [DataKlasteringController::class, 'create']);
-    Route::put('dataklastering/{id}', [DataKlasteringController::class, 'update']);
+    Route::get('/reports', [DataKlasteringController::class, 'store']);
+    Route::delete('reports/{id}', [DataKlasteringController::class, 'destroy']);
 
     Route::post('logout', LogoutController::class)->name('logout')->middleware('auth');
+    Route::get('report', [ReportController::class, 'index']);
+    Route::get('report-cluster/{id}', [ReportController::class, 'klaster']);
 
 });
 

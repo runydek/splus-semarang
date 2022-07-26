@@ -43,7 +43,7 @@
                                 <a href="/dataklastering">Daftar Data Klastering</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="createdk">Input Data Klastering</a>
+                                <a href="/report">Report Data Klastering</a>
                             </li>
                         </ul>
                     </li>

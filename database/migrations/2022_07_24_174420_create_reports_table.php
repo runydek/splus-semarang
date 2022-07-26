@@ -13,10 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('data_klasterings', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
             $table->id();
-
+            $table->foreignId('klaster_id');
+            $table->string('kode_barang');
+            $table->string('nama_barang');
+            $table->integer('stok_barang');
+            $table->integer('jml_transaksi');
+            $table->integer('jml_terjual');
+            $table->float('rtpenjual');
+            $table->string('cluster');
             $table->timestamps();
+
         });
     }
 
@@ -27,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_klasterings');
+        Schema::dropIfExists('reports');
     }
 };
