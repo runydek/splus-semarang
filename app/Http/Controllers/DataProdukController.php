@@ -8,11 +8,17 @@ use Illuminate\Support\Str;
 
 class DataProdukController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('produks.dataproduk', [
-            'produks' => DataProduk::orderBy('id', 'asc')->get()
-        ]);
+        if ($request->has('search')) {
+            $produks = DataProduk::where('namabarang', 'LIKE', '%' . $request->search . '%')->paginate();
+
+        } else {
+            $produks = DataProduk::orderBy('id', 'asc')->get();
+        }
+
+        return view('produks.dataproduk', compact('produks'));
+
     }
 
     public function create()

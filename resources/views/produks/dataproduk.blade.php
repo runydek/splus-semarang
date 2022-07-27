@@ -15,10 +15,13 @@
                             <a href="/createdp" class="btn btn-primary">Tambah Data</a>
                             <div class="col-sm-4 float-start float-lg-end">
                                 <div class="form-group position-relative has-icon-right">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <div class="form-control-icon">
-                                        <i class="bi bi-search"></i>
-                                    </div>
+                                    <form action="/dataproduk" method="get">
+                                    @csrf
+                                        <input type="text" name="search" class="form-control" placeholder="Search" value="">
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-search"></i>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -59,6 +62,7 @@
                             </tbody>
                         </table>
                     </div>
+                    {{-- {{ $produks->links() }} --}}
                 </div>
             </div>
         </div>

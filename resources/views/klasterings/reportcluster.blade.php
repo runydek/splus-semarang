@@ -55,6 +55,13 @@
                                     <td>{{ round($cluster->where('cluster', 'C'.$key+1)->avg('jml_terjual'), 2) }}</td>
                                     <td>{{ round($cluster->where('cluster', 'C'.$key+1)->avg('rtpenjual'), 2) }}</td>
                                 </tr>
+                                {{-- <tr>
+                                    <td>Centroid {{ $key + 1 }}</td>
+                                    <td></td>
+                                    <td>{{ round($cluster->where('cluster', 'C'.$key+1)->avg('jml_transaksi'), 2) }}</td>
+                                    <td>{{ round($cluster->where('cluster', 'C'.$key+1)->avg('jml_terjual'), 2) }}</td>
+                                    <td>{{ round($cluster->where('cluster', 'C'.$key+1)->avg('rtpenjual'), 2) }}</td>
+                                </tr> --}}
                             </tbody>
 
                         </table>

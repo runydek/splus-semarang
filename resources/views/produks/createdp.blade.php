@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal" action="dataproduk" method="post">
+                        <form class="form form-horizontal" action="/dataproduk/store" method="post">
                             @csrf
                             <div class="form-body">
                                 <div class="row">

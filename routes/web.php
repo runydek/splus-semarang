@@ -44,7 +44,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware(('auth'))->group(function () {
     // data produk
     Route::get('dataproduk', [DataProdukController::class, 'index']);
-    Route::post('dataproduk', [DataProdukController::class, 'store']);
+    Route::post('dataproduk/store', [DataProdukController::class, 'store']);
     Route::get('dataproduk/{id}/edit', [DataProdukController::class, 'edit']);
     Route::delete('dataproduk/{id}', [DataProdukController::class, 'destroy']);
     Route::get('createdp', [DataProdukController::class, 'create']);

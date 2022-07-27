@@ -58,7 +58,7 @@
                                 {{-- <tr>
                                     <td colspan="1"></td>
                                     <td>Mean</td>
-                                    <td></td>
+                                    <td>{{ round($cluster->where('cluster', 'C'.$key+1)->avg('jml_transaksi'), 2) }}</td>
                                     <td></td>
                                     <td></td>
                                 </tr> --}}
